@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IndexComponent } from './index/index.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,14 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({  
+      closeButton: true,  
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'decreasing',
+      preventDuplicates: true,
+    } ), // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]

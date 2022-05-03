@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SharedService } from '../../Services/shared.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-farmer-registration',
@@ -31,8 +32,8 @@ export class FarmerRegistrationComponent implements OnInit {
 
   verifyEmail() {
     this.SharedService_.verifyEmail({ 'email': this.createUser.controls['farmer_email'].value, otp: this.createUser.controls['otp'].value }).subscribe(
-      (data : any) => {
-        if (data['status'] == 200) {
+      (res : any) => {
+        if (res['status'] == 200) {
           this.VerifyLabel = 'Verified'
           this.createUser.controls['otpStatus'].setValue('verified')
         } else {
@@ -56,9 +57,17 @@ export class FarmerRegistrationComponent implements OnInit {
       "farmer_password": this.createUser.controls['farmer_password'].value,
     }
     this.SharedService_.farmer_registration(body).subscribe(
-      (res) => {
-        console.log("res", res)
+      (res :any ) => {
+        if (res['status'] == 200) {
+          this.toastr.success(res.message);
+          console.log("res", res)
+          this.createUser.reset()
+        }else {
+          this.toastr.error(res.message);
+          console.log("res", res)
+        }
       }, error => {
+        this.toastr.error(error.message);
         console.log(error)
       }
 
@@ -68,14 +77,16 @@ export class FarmerRegistrationComponent implements OnInit {
   sendOTP() {
     this.disableCreatorEmail = true;
     let body = { 'email': this.createUser.controls['farmer_email'].value }
-    this.otpLabel = "Sending"
+    this.otpLabel = "Sending" 
     if (this.createUser.controls['farmer_email'].valid) {
       this.SharedService_.sendOTP(body).subscribe(
-        (data : any) => {
+        (res : any) => {
+          this.toastr.success(res.message);
           this.isSendOTPVisible = false;
-          console.log(data)
+          console.log(res)
         },
         (error : any) => {
+          this.toastr.error(error.message);
           console.log(error)
         }
       )
@@ -85,7 +96,7 @@ export class FarmerRegistrationComponent implements OnInit {
     }
   }
 
-  constructor(private SharedService_: SharedService) { }
+  constructor(private SharedService_: SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
