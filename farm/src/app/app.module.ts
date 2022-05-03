@@ -7,12 +7,16 @@ import { FarmerRegistrationComponent } from './farmer-registration/farmer-regist
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { IndexComponent } from './index/index.component';
+import { MainMenuComponent } from './main-menu/main-menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FarmerRegistrationComponent
+    FarmerRegistrationComponent,
+    IndexComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,
