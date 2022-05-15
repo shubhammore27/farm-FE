@@ -1,13 +1,33 @@
-.imagesContainer{
+.imagesContainer {
     position: relative;
     top: 0;
     left: 0;
 }
 
-.carousel-item img{
-    height:550px;
+.carousel-item img {
+    height: 550px;
 }
 
-.main-div{
+.main-div {
     background-color: rgb(0, 100, 0);
 }
+
+.card {
+    border: none !important;
+    width: 33rem;
+    overflow: hidden;
+    margin-bottom: 10rem;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 10px 10px 10px rgba(211, 202, 202, 0.5);
+}
+
+.container img:hover  {
+    cursor: pointer;
+    transform: scale(3);
+    transform-origin: center;
+    transition-duration: 1.5s;
+}
+
