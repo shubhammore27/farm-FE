@@ -12,13 +12,15 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FarmerRegistrationComponent,
     IndexComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
