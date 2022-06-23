@@ -13,6 +13,8 @@
   background-color: rgba(232, 241, 181, 0.603);
   padding: 1rem;
   border-radius: 1rem;
+  min-width: 80rem;
+  min-height: 70vh;
 }
 
 .form-group label{

@@ -7,21 +7,21 @@
         </h3>
         <div class="form-group mt-2 col-lg-6">
             <label for="exampleInputEmail1">Farmer Name</label>
-            <input formControlName="farmer_name" type="text" class="form-control form-control-sm "
+            <input formControlName="farmer_name" type="text" class="form-control form-control-lg "
                 [ngClass]="createUser.controls['farmer_name'].touched && createUser.controls['farmer_name'].invalid ? 'is-invalid' : createUser.controls['farmer_name'].invalid ?'' : 'is-valid' "
                 placeholder="farmer_name">
         </div>
 
         <div class="form-group mt-2 col-lg-6">
             <label for="exampleInputEmail1"> Address</label>
-            <textarea  formControlName="farmer_address"  rows="3" cols="50" maxlength="150" class="form-control form-control-sm"
+            <textarea  formControlName="farmer_address"  rows="3" cols="50" maxlength="150" class="form-control form-control-lg"
                 placeholder="farmer_address"
                 [ngClass]=" createUser.controls['farmer_address'].touched && createUser.controls['farmer_address'].invalid ? 'is-invalid' : createUser.controls['farmer_address'].invalid ?'' : 'is-valid' "> </textarea>
         </div>
 
         <div class="form-group mt-2 col-lg-6">
             <label for="exampleInputEmail1">Phone Number</label>
-            <input formControlName="farmer_phone" type="text" class="form-control form-control-sm"
+            <input formControlName="farmer_phone" type="text" class="form-control form-control-lg"
                 placeholder="Phone Number"
                 [ngClass]=" createUser.controls['farmer_phone'].touched && createUser.controls['farmer_phone'].invalid ? 'is-invalid' : createUser.controls['farmer_phone'].invalid ?'' : 'is-valid' ">
         </div>
@@ -30,11 +30,11 @@
             <label for="exampleInputPassword1">Email</label>
             <div class="btn-toolbar">
                 <div class="">
-                    <input type="text" class="form-control form-control-sm " formControlName="farmer_email"
+                    <input type="text" class="form-control form-control-lg " formControlName="farmer_email"
                         placeholder="Creator Email" style="width:22.5rem" [readonly]="disableCreatorEmail"
                         [ngClass]=" createUser.controls['farmer_email'].touched && createUser.controls['farmer_email'].invalid ? 'is-invalid' : createUser.controls['farmer_email'].invalid ?'' : 'is-valid' ">
                 </div>
-                <input placeholder="OTP" type="text " class="form-control form-control-sm mx-2" style="width:5rem"
+                <input placeholder="OTP" type="text " class="form-control form-control-lg mx-2" style="width:5rem"
                     [hidden]="!createUser.controls['farmer_email'].valid" *ngIf="!isSendOTPVisible"
                     formControlName="otp" [readonly]="VerifyLabel == 'Verified' ? true : false"
                     [ngClass]="createUser.controls['otp'].invalid ? 'is-invalid' : createUser.controls['otp'].invalid ? '' : 'is-valid' ">
@@ -47,14 +47,14 @@
 
         <div class="form-group mt-2 col-lg-6">
             <label for="exampleInputPassword1">Password</label>
-            <input formControlName="farmer_password" type="password" class="form-control form-control-sm"
+            <input formControlName="farmer_password" type="password" class="form-control form-control-lg"
                 placeholder="farmer_password"
                 [ngClass]=" createUser.controls['farmer_password'].touched && createUser.controls['farmer_password'].invalid ? 'is-invalid' : createUser.controls['farmer_password'].invalid ?'' : 'is-valid' ">
         </div>
 
         <div class="form-group mt-2 col-lg-6">
             <label for="exampleInputPassword1">Confirm Password</label>
-            <input formControlName="confirmPassword" type="password" class="form-control form-control-sm"
+            <input formControlName="confirmPassword" type="password" class="form-control form-control-lg"
                 placeholder="Confirm Password"
                 [ngClass]=" createUser.controls['confirmPassword'].touched && createUser.controls['confirmPassword'].invalid ? 'is-invalid' : createUser.controls['confirmPassword'].invalid ?'' : 'is-valid' ">
         </div>
