@@ -23,5 +23,9 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.verifyEmail, email)
   }
 
+  login(body :any) {
+    return this.http.post(environment.baseUrl + UrlMapping.login, body)
+  }
+
 
 }
