@@ -63,7 +63,7 @@ html {
     margin-bottom: 30px!important;
   }
   .tm-block {
-    padding: 40px!important;
+    padding: 30px 50px!important;
     -webkit-box-shadow: 1px 1px 5px 0 #455c71!important;
     -moz-box-shadow: 1px 1px 5px 0 #455c71!important;
     box-shadow: 1px 1px 5px 0 #455c71!important;
@@ -350,6 +350,20 @@ html {
     background-color: transparent!important;
     border: 2px solid #f5a623!important;
   }
+  .btn-danger {
+    color: #fff!important;
+    background-color: #ee3131!important;
+    border: 2px solid #ee3131!important;
+    font-size: 90%!important;
+    font-weight: 600!important;
+    width: 100%;;
+  }
+  .btn-danger:active,
+  .btn-danger:hover {
+    color: #ee3131!important;
+    background-color: transparent!important;
+    border: 2px solid #ee3131!important;
+  }
   .custom-file-input {
     cursor: pointer!important;
   }
@@ -479,7 +493,7 @@ html {
     -o-border-radius: 0!important;
     border-radius: 0!important;
     padding: 15px!important;
-    /* background: url(../img/arrow-down.png) 98% no-repeat #50657b!important; */
+    background: #50657b!important;
   }
   .custom-select:focus {
     outline: 0!important;

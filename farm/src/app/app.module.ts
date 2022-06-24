@@ -13,6 +13,7 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
     FarmerRegistrationComponent,
     IndexComponent,
     MainMenuComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    AdminMenuComponent
   ],
   imports: [
     BrowserModule,

@@ -1,38 +1,45 @@
-<div class="container-float">
-    <nav class="navbar navbar-expand navbar-dark bg-success px-5">
-      <a class="navbar-brand" routerLink=""> <img src="" style="height:30px" alt="">
-        Farming Equipment</a>
-  
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse  px-5" id="navbarText">
-        <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-xl">
+  <div class="container h-100">
+    <a class="navbar-brand" routerLink="">
+      <h1 class="tm-site-title mb-0">Farming Equipment</h1>
+    </a>
+    <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fas fa-bars tm-nav-icon"></i>
+    </button>
 
-          <li class="nav-item ">
-            <a class="nav-link" routerLink="">Home</a>
-          </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto h-100">
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/farmer-registration">Register</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">
+            <i class="fa fa-home" aria-hidden="true"></i> Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/login">Login</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/farmer-registration">
+            <i class="fa fa-user-plus" aria-hidden="true"></i> Register
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="#">About Us</a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link" routerLink="#">History</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">
+            <i class="fa fa-info" aria-hidden="true"></i>About Us
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
 
-        </ul>
-      </div>
-    </nav>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login">
+            <i class="fas fa-sign-in-alt"></i> Login
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-
+</nav>
