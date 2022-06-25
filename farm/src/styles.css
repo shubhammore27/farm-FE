@@ -722,5 +722,6 @@ html {
     }
   }
   
-
-  
+  .form-control-textarea{
+    min-height: 12rem!important;
+  }

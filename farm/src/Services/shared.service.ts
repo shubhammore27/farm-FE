@@ -27,5 +27,9 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.login, body)
   }
 
+  addProduct(body :any) {
+    return this.http.post(environment.baseUrl + UrlMapping.add_product, body)
+  }
+
 
 }

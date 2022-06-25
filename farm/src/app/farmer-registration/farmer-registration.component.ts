@@ -36,14 +36,17 @@ export class FarmerRegistrationComponent implements OnInit {
         if (res['status'] == 200) {
           this.VerifyLabel = 'Verified'
           this.createUser.controls['otpStatus'].setValue('verified')
+          this.toastr.success("Verified")
         } else {
           this.createUser.controls['otp'].setValue('')
           this.createUser.controls['otp'].invalid
           this.disableCreatorEmail = true;
           this.createUser.controls['otpStatus'].setValue('')
+          this.toastr.error("Invalid")
         }
       }, error => {
         this.VerifyLabel = "Verify"
+        this.toastr.error(error)
         console.log(error)
       })
   }

@@ -1,0 +1,82 @@
+<app-admin-menu></app-admin-menu>
+<div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+            <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                    </div>
+                </div>
+                <form class="row tm-edit-product-row" [formGroup]="Product">
+                    <div class="col-xl-6 col-lg-6 col-md-12">
+                        <div  class="tm-edit-product-form">
+                            <div class="form-group mb-3">
+                                <label for="name">Product Name
+                                </label>
+                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_name" [ngClass]="Product.controls['product_name'].touched && Product.controls['product_name'].invalid ? 'is-invalid' : Product.controls['product_name'].invalid ?'' : 'is-valid' "/>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="category">Product Category</label>
+                                <select class="custom-select tm-select-accounts" id="category" formControlName="product_category" [ngClass]="Product.controls['product_category'].touched && Product.controls['product_category'].invalid ? 'is-invalid' : Product.controls['product_category'].invalid ?'' : 'is-valid' ">
+                                    <option value="Select category">Select category</option>
+                                    <option value="New Arrival">New Arrival</option>
+                                    <option value="Most Popular">Most Popular</option>
+                                    <option value="Trending">Trending</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="name">Product Price
+                                </label>
+                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_price" [ngClass]="Product.controls['product_price'].touched && Product.controls['product_price'].invalid ? 'is-invalid' : Product.controls['product_price'].invalid ?'' : 'is-valid' "/>
+                            </div>
+
+                            
+                            <div class="form-group mb-3">
+                                <label for="name">Product Off
+                                </label>
+                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_offer" [ngClass]="Product.controls['product_offer'].touched && Product.controls['product_offer'].invalid ? 'is-invalid' : Product.controls['product_offer'].invalid ?'' : 'is-valid' "/>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="name">Product Brand
+                                </label>
+                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_brand" [ngClass]="Product.controls['product_brand'].touched && Product.controls['product_brand'].invalid ? 'is-invalid' : Product.controls['product_brand'].invalid ?'' : 'is-valid' "/>
+                            </div>
+
+
+
+                            <div class="form-group mb-3">
+                                <label for="name">Product Stock 
+                                </label>
+                                <input id="name" name="name" type="text" class="form-control validate" formControlName="stock_size" [ngClass]="Product.controls['stock_size'].touched && Product.controls['stock_size'].invalid ? 'is-invalid' : Product.controls['stock_size'].invalid ?'' : 'is-valid' "/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                        <div class="tm-product-img-dummy mx-auto">
+                            <i class="fas fa-cloud-upload-alt tm-upload-icon"
+                                onclick="document.getElementById('fileInput').click();"></i>
+                        </div>
+                        <div class="custom-file mt-3 mb-3">
+                            <input id="fileInput" type="file" style="display:none;"  formControlName='product_img'/>
+                            <input type="file" class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE"
+                                onclick="document.getElementById('fileInput').click();" formControlName='product_img'/>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="description">Description</label>
+                            <textarea class="form-control validate form-control-textarea" rows="5" formControlName="product_description" style="min-height:'10rem'!important" [ngClass]="Product.controls['product_description'].touched && Product.controls['product_description'].invalid ? 'is-invalid' : Product.controls['product_description'].invalid ?'' : 'is-valid' "></textarea>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button (click)=" addProduct()" style='width:100%;' class="btn btn-primary btn-block text-uppercase">Add Product
+                            Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

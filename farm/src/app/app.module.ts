@@ -14,6 +14,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
     IndexComponent,
     MainMenuComponent,
     LoginPageComponent,
-    AdminMenuComponent
+    AdminMenuComponent,
+    AdminDashboardComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
