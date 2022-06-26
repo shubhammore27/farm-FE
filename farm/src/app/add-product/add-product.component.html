@@ -56,14 +56,11 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                        <div class="tm-product-img-dummy mx-auto">
-                            <i class="fas fa-cloud-upload-alt tm-upload-icon"
-                                onclick="document.getElementById('fileInput').click();"></i>
-                        </div>
+
+                        <img [src]="url" style="max-width: 300px!important; max-height: 200px;">
                         <div class="custom-file mt-3 mb-3">
-                            <input id="fileInput" type="file" style="display:none;"  formControlName='product_img'/>
                             <input type="file" class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE"
-                                onclick="document.getElementById('fileInput').click();" formControlName='product_img'/>
+                                onclick="document.getElementById('fileInput').click();" (change)="readUrl($event)"  formControlName='product_img'/>
                         </div>
 
                         <div class="form-group mb-3">

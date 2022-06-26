@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-
+  url :any
   private fb: FormBuilder = new FormBuilder()
 
     // Create User Form
@@ -33,6 +33,7 @@ export class AddProductComponent implements OnInit {
       if (res['status'] == 200) {
         this.toastr.success("Product Added successfully.")
         this.Product.reset()
+        this.url = ''
       } else {
         this.toastr.error("Something went wrong.")
       }
@@ -40,6 +41,18 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+  
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      }
+  
+      reader.readAsDataURL(event.target.files[0]);
+    }
   }
 
 }
