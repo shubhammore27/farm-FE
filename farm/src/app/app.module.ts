@@ -16,6 +16,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     LoginPageComponent,
     AdminMenuComponent,
     AdminDashboardComponent,
-    AddProductComponent
+    AddProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,

@@ -11,27 +11,37 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto h-100">
+                
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/home">
                         <i class="fas fa-tachometer-alt"></i> Dashboard
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" routerLink="/home" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-file-alt"></i>
                         <span> Reports <i class="fas fa-angle-down"></i> </span>
                     </a>
+
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" routerLink="/home">Daily Report</a>
                         <a class="dropdown-item" routerLink="/home">Weekly Report</a>
                         <a class="dropdown-item" routerLink="/home">Yearly Report</a>
                     </div>
                 </li>
+
                 <li class="nav-item" routerLink="/add-product" routerLinkActive="active" aria-expanded="false">
                     <a class="nav-link" >
                         <i class="fas fa-shopping-cart"></i> Products
+                    </a>
+                </li>
+
+                <li class="nav-item" routerLink="/update-product" routerLinkActive="active" aria-expanded="false">
+                    <a class="nav-link" >
+                        <i class="fa fa-upload" aria-hidden="true"></i> Update Product
                     </a>
                 </li>
 
@@ -40,6 +50,7 @@
                         <i class="far fa-user"></i> Accounts
                     </a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" routerLink="/home" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,6 +64,7 @@
                     </div>
                 </li>
             </ul>
+
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link d-block" routerLink="/home">
