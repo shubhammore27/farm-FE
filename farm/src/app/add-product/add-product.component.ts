@@ -17,7 +17,7 @@ export class AddProductComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes){
-      this.ngOnInit()
+      this.getProductDetails()
     }
   }
 
@@ -66,7 +66,10 @@ export class AddProductComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+
+  getProductDetails(){
     if (this.selected_product != ''){
       const body = {product_Id : this.selected_product}
       this.SharedService_.getProduct(body).subscribe((res:any)=>{
