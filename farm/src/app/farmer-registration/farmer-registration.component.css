@@ -26,4 +26,11 @@ textarea {
     resize: none;
   }
 
-  
+  .disabled-contenct {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .disabled-contenct:hover{
+    cursor: not-allowed!important;
+  }

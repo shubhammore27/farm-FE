@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AddProductComponent implements OnInit {
   private fb: FormBuilder = new FormBuilder()
 
-  @Input('selected_product') selected_product : FormBuilder = new FormBuilder()
+  @Input('selected_product') selected_product : any =[]
   url :any
 
   ngOnChanges(changes: SimpleChanges) {
@@ -37,9 +37,9 @@ export class AddProductComponent implements OnInit {
   constructor(private SharedService_: SharedService, private toastr: ToastrService) {  }
 
   addProduct(){
-    console.log(this.Product.value)
     const body = this.Product.value
-    body['product_img'] = this.Product.controls['product_img'].value.replace("C:\\fakepath\\", '')
+    // body['product_img'] = this.Product.controls['product_img'].value.replace("C:\\fakepath\\", '')
+    body['product_img'] = this.url 
     this.SharedService_.addProduct(this.Product.value).subscribe((res :any) => {
       if (res['status'] == 200) {
         this.toastr.success("Product Added successfully.")
@@ -51,31 +51,37 @@ export class AddProductComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    console.log('CHILD')
-    const body = {product_Id : this.selected_product}
-
-    console.log('body', body)
-    this.SharedService_.getProduct(body).subscribe((res:any)=>{
-      if(res['status'] == 200){
-        console.log(res.data[0])
-        this.Product.setValue(res.data[0])
-      }else{
+  updateProduct(){
+    const body = this.Product.value
+    // body['product_img'] = this.Product.controls['product_img'].value.replace("C:\\fakepath\\", '')
+    body['product_img'] = this.url 
+    this.SharedService_.updateProduct(this.Product.value).subscribe((res :any) => {
+      if (res['status'] == 200) {
+        this.toastr.success("Product updated successfully.")
+        this.Product.reset()
+        this.url = ''
+      } else {
         this.toastr.error("Something went wrong.")
       }
-    }, (err)=>{this.toastr.error(err)})
+    })
+  }
+
+  ngOnInit(): void {
+    if (this.selected_product != ''){
+      const body = {product_Id : this.selected_product}
+      this.SharedService_.getProduct(body).subscribe((res:any)=>{
+        if(res['status'] == 200){
+          this.Product.setValue(res.data[0])
+          this.url= '../../assets/img/'+res.data[0].product_img
+        }else{
+          this.toastr.error("Something went wrong.")
+        }
+      }, (err)=>{this.toastr.error(err)})
+    }
   }
 
   readUrl(event:any) {
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-  
-      reader.onload = (event: ProgressEvent) => {
-        this.url = (<FileReader>event.target).result;
-      }
-  
-      reader.readAsDataURL(event.target.files[0]);
-    }
+    this.url ='../../assets/img/'+ event.target.files[0].name
   }
 
 }

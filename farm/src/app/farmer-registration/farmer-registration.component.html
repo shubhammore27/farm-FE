@@ -1,14 +1,15 @@
 <div class="" id="home">
- <app-main-menu></app-main-menu>
-    <div class="container mt-2">
-        <div class="row tm-content-row">
+ <app-main-menu *ngIf="farmer_id == ''"></app-main-menu>
+ <app-admin-menu *ngIf="farmer_id != ''"></app-admin-menu>
+    <form class="container mt-2" [formGroup]="createUser">
+        <div class="row tm-content-row" >
             <div class="col-12 tm-block-col">
-                <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
-                    <h2 class="text-white">List of Accounts</h2>
-                    <select class="custom-select">
-                        <option value="0">Select account</option>
-                        <option value="1">Admin</option>
-                        <option value="2">Farmer</option>
+                <div class="tm-bg-primary-dark tm-block tm-block-h-auto ">
+                    <h2 class="text-white">List of Accounts: {{farmer_id != ''}}</h2>
+                    <select class="custom-select " formControlName="account_type"  [class.disabled-contenct]="farmer_id != ''">
+                        <option value='' >Select account</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Farmer">Farmer</option>
                     </select>
                 </div>
             </div>
@@ -19,22 +20,21 @@
                 <div class="tm-bg-primary-dark tm-block tm-block-avatar">
                     <h2 class="tm-block-title">Change Avatar</h2>
                     <div class="tm-avatar-container">
-                        <img src="../../assets/img/img_avatar2.png" alt="Avatar" class="tm-avatar img-fluid mb-4" />
-                        <!-- <a href="#" class="tm-avatar-delete-link">
-                            <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                        </a> -->
+                        <img id="fileInput"  [src]="url" style="max-width: 300px!important; max-height: 200px;" *ngIf="farmer_id == ''">
+                        <img id="fileInput" alt="user avatar" src='{{ "assets/images/"+url}}' style="max-width: 300px!important; max-height: 200px;" *ngIf="farmer_id != '' && url != ''">
+                        <img id="fileInput" alt='avatar' src='../../assets/img/img_avatar2.png' style="max-width: 300px!important; max-height: 200px;" *ngIf="url == ''">
                     </div>
-                    <button class="btn btn-primary btn-block text-uppercase" style="width:100% ;">
-                        Upload New Photo
-                    </button>
+                    <input type="file" class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE"
+                                onclick="document.getElementById('fileInput').click();" (change)="readUrl($event)"  />
                 </div>
             </div>
             <div class="tm-block-col tm-col-account-settings">
                 <div class="tm-bg-primary-dark tm-block tm-block-settings">
                     <h2 class="tm-block-title">Account Settings<br>
+                        {{createUser.errors}}
                         Form Status: {{ createUser.status }} <span *ngIf="createUser.status == 'INVALID'">&#x274C;</span> <span style="color: greenyellow;" *ngIf='createUser.status == "VALID"' >&#10004;</span>
                     </h2>
-                    <form class="tm-signup-form row" [formGroup]="createUser">
+                    <div class="tm-signup-form row" >
                         <div class="form-group mt-2 col-lg-6">
                             <label for="exampleInputEmail1">Farmer Name</label>
                             <input formControlName="farmer_name" type="text" class="form-control form-control-lg "
@@ -93,20 +93,26 @@
 
 
                         <div class="col-lg-12">
-                            <button (click)="onSubmit()" [disabled]="!createUser.valid"
+                            <button (click)="onSubmit()" *ngIf="farmer_id == ''" [disabled]="!createUser.valid" 
                                 class="btn btn-primary btn-block text-uppercase col-lg-12">
                                 Create Profile
                             </button>
+                            <button (click)="updateProfile()" *ngIf="farmer_id != ''"  [disabled]="!createUser.valid"
+                                class="btn btn-primary btn-block text-uppercase col-lg-12">
+                                Update Profile
+                            </button>
+
+                            
                         </div>
                         <!-- <div class="col-6">
                             <button type="submit" class="btn btn-primary btn-block text-uppercase">
                                 Delete Your Account
                             </button>
                         </div> -->
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
 </div>

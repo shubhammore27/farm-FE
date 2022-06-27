@@ -1,4 +1,6 @@
 <!-- <app-admin-menu></app-admin-menu> -->
+<app-admin-menu *ngIf="selected_product == ''"></app-admin-menu>
+
 <div class="container tm-mt-big tm-mb-big">
     <div class="row">
         <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
@@ -56,11 +58,11 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-
-                        <img [src]="url" style="max-width: 300px!important; max-height: 200px;">
+                        <img id="fileInput" [src]="url" style="max-width: 300px!important; max-height: 200px;" *ngIf="selected_product == ''">
+                        <img id="fileInput" src='{{ "assets/images/"+url}}' style="max-width: 300px!important; max-height: 200px;" *ngIf="selected_product != ''">
                         <div class="custom-file mt-3 mb-3">
                             <input type="file" class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE"
-                                onclick="document.getElementById('fileInput').click();" (change)="readUrl($event)"  formControlName='product_img'/>
+                                onclick="document.getElementById('fileInput').click();" (change)="readUrl($event)"  />
                         </div>
 
                         <div class="form-group mb-3">
@@ -69,7 +71,10 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <button (click)=" addProduct()" style='width:100%;' class="btn btn-primary btn-block text-uppercase">Add Product
+                        <button (click)=" addProduct()" style='width:100%;' class="btn btn-primary btn-block text-uppercase" *ngIf="selected_product == ''">Add Product
+                            Now</button>
+
+                        <button (click)="updateProduct()" style='width:100%;' class="btn btn-primary btn-block text-uppercase" *ngIf="selected_product != ''">Update Product
                             Now</button>
                     </div>
                 </form>

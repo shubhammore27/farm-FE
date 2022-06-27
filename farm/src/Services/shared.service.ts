@@ -10,6 +10,8 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
 
+  // ============================ SHARED APIS============================
+
   sendOTP(email: any) {
     return this.http.post(environment.baseUrl + UrlMapping.sendOTP, email)
   }
@@ -18,7 +20,6 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.farmer_registration, body)
   }
 
-  
   verifyEmail(email: any) {
     return this.http.post(environment.baseUrl + UrlMapping.verifyEmail, email)
   }
@@ -26,6 +27,17 @@ export class SharedService {
   login(body :any) {
     return this.http.post(environment.baseUrl + UrlMapping.login, body)
   }
+
+  getFarmerDetails(body :any ){
+    return this.http.post(environment.baseUrl + UrlMapping.getFarmerDetails, body)
+  }
+
+  updateProfile(body:any){
+    return this.http.post(environment.baseUrl + UrlMapping.updateProfile, body)
+  }
+
+
+  // ============================ ADMIN APIS ============================
 
   addProduct(body :any) {
     return this.http.post(environment.baseUrl + UrlMapping.add_product, body)

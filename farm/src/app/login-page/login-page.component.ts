@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SharedService } from '../../Services/shared.service';
 import { ToastrService } from 'ngx-toastr';
-import { Routes, RouterModule ,Router} from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -25,8 +25,9 @@ export class LoginPageComponent implements OnInit {
       this.SharedService_.login(this.login_form.value).subscribe((res : any)  => {
         if(res.status == 200){
           this.toastr.success("Login Successfull.")
+          sessionStorage.setItem('farmer_id', res.data[0].farmer_id)
           this.login_form.reset();
-          this.router.navigateByUrl('admin-dashboard');
+          this.router.navigateByUrl('add-product');
         }
         if(res.status == 400){
           this.toastr.error("Login Error.")
