@@ -71,6 +71,7 @@ export class FarmerRegistrationComponent implements OnInit {
           this.toastr.success(res.message);
           console.log("res", res)
           this.createUser.reset()
+          this.url = ''
         }else {
           this.toastr.error(res.message);
           console.log("res", res)
@@ -84,7 +85,15 @@ export class FarmerRegistrationComponent implements OnInit {
   }
 
   updateProfile(){
-    const body= {}
+    let body = {
+      "farmer_id": this.farmer_id,
+      "farmer_name": this.createUser.controls['farmer_name'].value,
+      "farmer_address": this.createUser.controls['farmer_address'].value,
+      "farmer_phone": this.createUser.controls['farmer_phone'].value,
+      "farmer_email": this.createUser.controls['farmer_email'].value,
+      "farmer_password": this.createUser.controls['farmer_password'].value,
+      "farmer_img" : this.url
+    }
     this.SharedService_.updateProfile(body).subscribe((res :any) => {
       if (res['status'] == 200) {
         this.toastr.success(res.message);
