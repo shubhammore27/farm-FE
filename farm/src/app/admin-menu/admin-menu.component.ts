@@ -14,6 +14,7 @@ export class AdminMenuComponent implements OnInit {
 
   logout(){
     sessionStorage.clear()
+    console.log(sessionStorage)
     this.router.navigate(['/login']);
   }
 

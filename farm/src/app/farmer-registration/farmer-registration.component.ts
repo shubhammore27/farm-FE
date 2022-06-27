@@ -47,7 +47,7 @@ export class FarmerRegistrationComponent implements OnInit {
           this.createUser.controls['otp'].invalid
           this.disableCreatorEmail = true;
           this.createUser.controls['otpStatus'].setValue('')
-          this.toastr.error("Invalid")
+          this.toastr.error(res.message)
         }
       }, error => {
         this.VerifyLabel = "Verify"
@@ -112,9 +112,13 @@ export class FarmerRegistrationComponent implements OnInit {
     if (this.createUser.controls['farmer_email'].valid) {
       this.SharedService_.sendOTP(body).subscribe(
         (res : any) => {
-          this.toastr.success(res.message);
-          this.isSendOTPVisible = false;
-          console.log(res)
+          if (res.status == 200) {
+            this.toastr.success(res.message);
+            this.isSendOTPVisible = false;
+          }else{
+            this.toastr.error(res.message);
+            this.otpLabel = "Send OTP" 
+          }
         },
         (error : any) => {
           this.toastr.error(error.message);

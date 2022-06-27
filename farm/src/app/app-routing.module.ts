@@ -5,6 +5,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { FarmerRegistrationComponent } from './farmer-registration/farmer-registration.component';
 import {IndexComponent} from './index/index.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ProductListComponent } from './product-list/product-list.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 
 const routes: Routes = [
@@ -12,9 +13,10 @@ const routes: Routes = [
   { path: 'home', component: IndexComponent },
   { path: 'farmer-registration', component: FarmerRegistrationComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
-  {path: 'login', component: LoginPageComponent},
-  {path: 'add-product', component: AddProductComponent},
-  {path: 'update-product', component: UpdateProductComponent},
+  { path: 'login', component: LoginPageComponent},
+  { path: 'add-product', component: AddProductComponent},
+  { path: 'update-product', component: UpdateProductComponent},
+  { path: 'product-list', component: ProductListComponent},
   
 ];
 

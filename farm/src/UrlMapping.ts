@@ -15,5 +15,6 @@ export class UrlMapping {
     public static get_all_product = '/farm/get_all_product';
     public static get_product = '/farm/get_product';
     public static update_product = '/farm/update_product';
+    public static deleteProduct = '/farm/deleteProduct';
     
 }

@@ -13,7 +13,7 @@ export class AddProductComponent implements OnInit {
   private fb: FormBuilder = new FormBuilder()
 
   @Input('selected_product') selected_product : any =[]
-  url :any
+  url :any = ''
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes){
@@ -25,12 +25,12 @@ export class AddProductComponent implements OnInit {
     Product = this.fb.group({
       product_Id: [''],
       product_name: ['Swaraj 265', Validators.compose([Validators.required, Validators.minLength(10)])],
-      product_category: ['Trending', Validators.compose([Validators.required, Validators.minLength(3)])],
+      product_category: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       product_price: ['30500', Validators.compose([Validators.required, Validators.minLength(3)])],
       product_offer: ['50050', Validators.compose([Validators.required, Validators.minLength(3)])],
       product_brand: ['Mahendra', Validators.compose([Validators.required, Validators.minLength(3)])],
       product_description: ['A tractor is an engineering vehicle specifically designed to deliver a high tractive effort at slow speeds, for the purposes of hauling a trailer or machinery such as that used in agriculture.', Validators.compose([Validators.required, Validators.minLength(10)])],
-      stock_size: ['5', Validators.compose([Validators.required, Validators.minLength(6)])],
+      stock_size: ['5', Validators.compose([Validators.required, Validators.minLength(1)])],
       product_img: ['', Validators.compose([Validators.required])],
   })
 
@@ -52,6 +52,10 @@ export class AddProductComponent implements OnInit {
   }
 
   updateProduct(){
+    if (this.Product.invalid) {
+      this.toastr.error("Please enter a valid product details.")
+      return
+    }
     const body = this.Product.value
     // body['product_img'] = this.Product.controls['product_img'].value.replace("C:\\fakepath\\", '')
     body['product_img'] = this.url 
@@ -85,6 +89,7 @@ export class AddProductComponent implements OnInit {
 
   readUrl(event:any) {
     this.url ='../../assets/img/'+ event.target.files[0].name
+    this.Product.controls['product_img'].setValue(this.url)
   }
 
 }

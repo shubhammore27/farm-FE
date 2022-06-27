@@ -1,0 +1,69 @@
+<app-admin-menu></app-admin-menu>
+
+<div class="container mt-5">
+    <div class="row tm-content-row">
+        <!-- <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 tm-block-col"> -->
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-products">
+                <div class="tm-product-table-container">
+                    <table class="table table-hover tm-table-small tm-product-table">
+                        <thead id="header-fixed">
+                            <tr>
+                                <th scope="col">&nbsp;</th>
+                                <th scope="col">PRODUCT NAME</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">IN STOCK</th>
+                                <th scope="col">Offer</th>
+                                <th scope="col">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                            <tr *ngFor="let product of products">
+                                <th scope="row">
+                                    <input type="checkbox" ng-true-value="'YES'" ng-false-value="'NO'"  (click)="checked(product.product_Id, $event.target)"/>
+                                </th>
+                                <td class="tm-product-name">{{product.product_name}}</td>
+                                <td class="tm-product-name">{{product.product_price}}</td>
+                                <td class="tm-product-name">{{product.stock_size}}</td>
+                                <td class="tm-product-name">{{product.product_offer}} <span class="label">%</span></td>
+                                <td >
+                                    <a (click)="deleteProductList.push(product.product_Id) ;deleteProduct()" class="tm-product-delete-link " style="cursor: pointer;">
+                                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <!-- table container -->
+                <a routerLink="/add-product" class="btn btn-primary btn-block text-uppercase m-3">Add new product</a>
+                <button class="btn btn-primary btn-block text-uppercase m-3" (click)="deleteProduct()">
+                    Delete selected products
+                </button>
+            </div>
+        </div>
+        <!-- <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 tm-block-col">
+            <div class="tm-bg-primary-dark tm-block tm-block-product-categories">
+                <h2 class="tm-block-title">Product Categories</h2>
+                <div class="tm-product-table-container">
+                    <table class="table tm-table-small tm-product-table">
+                        <tbody>
+                            <tr>
+                                <td class="tm-product-name">Product Category 1</td>
+                                <td class="text-center">
+                                    <a href="#" class="tm-product-delete-link">
+                                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-primary btn-block text-uppercase mb-3">
+                    Add new category
+                </button>
+            </div>
+        </div> -->
+    </div>
+</div>

@@ -55,4 +55,8 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.get_product, body)
   }
 
+  deleteProduct(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.deleteProduct, body)
+  }
+
 }

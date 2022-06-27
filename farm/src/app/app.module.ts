@@ -17,6 +17,7 @@ import { AdminMenuComponent } from './admin-menu/admin-menu.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     AdminMenuComponent,
     AdminDashboardComponent,
     AddProductComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,

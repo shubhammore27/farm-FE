@@ -7,74 +7,104 @@
             <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="tm-block-title d-inline-block">Add Product</h2>
+                        <h2 class="tm-block-title d-inline-block">
+                            Add Product
+                            Form Status: {{ Product.status }} <span
+                                *ngIf="Product.status == 'INVALID'">&#x274C;</span> <span style="color: greenyellow;"
+                                *ngIf='Product.status == "VALID"'>&#10004;</span>
+                        </h2>
                     </div>
                 </div>
                 <form class="row tm-edit-product-row" [formGroup]="Product">
                     <div class="col-xl-6 col-lg-6 col-md-12">
-                        <div  class="tm-edit-product-form">
+                        <div class="tm-edit-product-form">
                             <div class="form-group mb-3">
                                 <label for="name">Product Name
                                 </label>
-                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_name" [ngClass]="Product.controls['product_name'].touched && Product.controls['product_name'].invalid ? 'is-invalid' : Product.controls['product_name'].invalid ?'' : 'is-valid' "/>
+                                <input id="name" name="name" type="text" class="form-control validate"
+                                    formControlName="product_name"
+                                    [ngClass]="Product.controls['product_name'].touched && Product.controls['product_name'].invalid ? 'is-invalid' : Product.controls['product_name'].invalid ?'' : 'is-valid' " />
                             </div>
                             <div class="form-group mb-3">
                                 <label for="category">Product Category</label>
-                                <select class="custom-select tm-select-accounts" id="category" formControlName="product_category" [ngClass]="Product.controls['product_category'].touched && Product.controls['product_category'].invalid ? 'is-invalid' : Product.controls['product_category'].invalid ?'' : 'is-valid' ">
-                                    <option value="Select category">Select category</option>
-                                    <option value="New Arrival">New Arrival</option>
-                                    <option value="Most Popular">Most Popular</option>
-                                    <option value="Trending">Trending</option>
+                                <select class="custom-select tm-select-accounts" id="category"
+                                    formControlName="product_category"
+                                    [ngClass]="Product.controls['product_category'].touched && Product.controls['product_category'].invalid ? 'is-invalid' : Product.controls['product_category'].invalid ?'' : 'is-valid' ">
+                                    <option value="">Select category</option>
+                                    <option value="Tractor and power">Tractor and power</option>
+                                    <option value="Planting">Planting</option>
+                                    <option value="Fertilizers and pesticides dispenser">Fertilizers and pesticides
+                                        dispenser</option>
+                                    <option value="Harvesting">Harvesting</option>
                                 </select>
                             </div>
 
                             <div class="form-group mb-3">
                                 <label for="name">Product Price
                                 </label>
-                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_price" [ngClass]="Product.controls['product_price'].touched && Product.controls['product_price'].invalid ? 'is-invalid' : Product.controls['product_price'].invalid ?'' : 'is-valid' "/>
+                                <input id="name" name="name" type="text" class="form-control validate"
+                                    formControlName="product_price"
+                                    [ngClass]="Product.controls['product_price'].touched && Product.controls['product_price'].invalid ? 'is-invalid' : Product.controls['product_price'].invalid ?'' : 'is-valid' " />
                             </div>
 
-                            
+
                             <div class="form-group mb-3">
-                                <label for="name">Product Off
+                                <label for="name">Product Off(%)
                                 </label>
-                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_offer" [ngClass]="Product.controls['product_offer'].touched && Product.controls['product_offer'].invalid ? 'is-invalid' : Product.controls['product_offer'].invalid ?'' : 'is-valid' "/>
+                                <input id="name" name="name" type="text" class="form-control validate"
+                                    formControlName="product_offer"
+                                    [ngClass]="Product.controls['product_offer'].touched && Product.controls['product_offer'].invalid ? 'is-invalid' : Product.controls['product_offer'].invalid ?'' : 'is-valid' " />
                             </div>
 
                             <div class="form-group mb-3">
                                 <label for="name">Product Brand
                                 </label>
-                                <input id="name" name="name" type="text" class="form-control validate" formControlName="product_brand" [ngClass]="Product.controls['product_brand'].touched && Product.controls['product_brand'].invalid ? 'is-invalid' : Product.controls['product_brand'].invalid ?'' : 'is-valid' "/>
+                                <input id="name" name="name" type="text" class="form-control validate"
+                                    formControlName="product_brand"
+                                    [ngClass]="Product.controls['product_brand'].touched && Product.controls['product_brand'].invalid ? 'is-invalid' : Product.controls['product_brand'].invalid ?'' : 'is-valid' " />
                             </div>
 
 
 
                             <div class="form-group mb-3">
-                                <label for="name">Product Stock 
+                                <label for="name">Product Stock
                                 </label>
-                                <input id="name" name="name" type="text" class="form-control validate" formControlName="stock_size" [ngClass]="Product.controls['stock_size'].touched && Product.controls['stock_size'].invalid ? 'is-invalid' : Product.controls['stock_size'].invalid ?'' : 'is-valid' "/>
+                                <input id="name" name="name" type="text" class="form-control validate"
+                                    formControlName="stock_size"
+                                    [ngClass]="Product.controls['stock_size'].touched && Product.controls['stock_size'].invalid ? 'is-invalid' : Product.controls['stock_size'].invalid ?'' : 'is-valid' " />
                             </div>
 
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                        <img id="fileInput" [src]="url" style="max-width: 300px!important; max-height: 200px;" *ngIf="selected_product == ''">
-                        <img id="fileInput" src='{{ "assets/images/"+url}}' style="max-width: 300px!important; max-height: 200px;" *ngIf="selected_product != ''">
+                        <!-- IMG to show while upload -->
+                        <img id="fileInput" alt="img" [src]="url" style="max-width: 28rem!important; max-height: 19rem;"
+                            *ngIf="selected_product == ''">
+
+                        <!-- IMG to show while Update -->
+                        <img id="fileInput" alt='product_img' src='{{ "assets/images/"+url}}'
+                            style="max-width: 28rem!important; max-height: 19rem;"
+                            *ngIf="selected_product != '' && url != ''">
                         <div class="custom-file mt-3 mb-3">
                             <input type="file" class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE"
-                                onclick="document.getElementById('fileInput').click();" (change)="readUrl($event)"  />
+                                onclick="document.getElementById('fileInput').click();" (change)="readUrl($event)" />
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="description">Description</label>
-                            <textarea class="form-control validate form-control-textarea" rows="5" formControlName="product_description" style="min-height:'10rem'!important" [ngClass]="Product.controls['product_description'].touched && Product.controls['product_description'].invalid ? 'is-invalid' : Product.controls['product_description'].invalid ?'' : 'is-valid' "></textarea>
+                            <textarea class="form-control validate form-control-textarea" rows="5"
+                                formControlName="product_description" style="min-height:'10rem'!important"
+                                [ngClass]="Product.controls['product_description'].touched && Product.controls['product_description'].invalid ? 'is-invalid' : Product.controls['product_description'].invalid ?'' : 'is-valid' "></textarea>
                         </div>
                     </div>
                     <div class="col-12">
-                        <button (click)=" addProduct()" style='width:100%;' class="btn btn-primary btn-block text-uppercase" *ngIf="selected_product == ''">Add Product
+                        <button [disabled]="Product.invalid" (click)=" addProduct()" style='width:100%;'
+                            class="btn btn-primary btn-block text-uppercase" *ngIf="selected_product == ''">Add Product
                             Now</button>
 
-                        <button (click)="updateProduct()" style='width:100%;' class="btn btn-primary btn-block text-uppercase" *ngIf="selected_product != ''">Update Product
+                        <button [disabled]="Product.invalid" (click)="updateProduct()" style='width:100%;'
+                            class="btn btn-primary btn-block text-uppercase" *ngIf="selected_product != ''">Update
+                            Product
                             Now</button>
                     </div>
                 </form>
