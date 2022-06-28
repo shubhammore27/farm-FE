@@ -18,6 +18,11 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { FarmerDashboardComponent } from './farmer-dashboard/farmer-dashboard.component';
+import { FarmerMenuComponent } from './farmer-menu/farmer-menu.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { CartComponent } from './cart/cart.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { ProductListComponent } from './product-list/product-list.component';
     AdminDashboardComponent,
     AddProductComponent,
     UpdateProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    FarmerDashboardComponent,
+    FarmerMenuComponent,
+    BuyProductComponent,
+    CartComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

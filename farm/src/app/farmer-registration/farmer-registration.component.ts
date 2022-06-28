@@ -11,7 +11,7 @@ import { Router} from '@angular/router';
 })
 export class FarmerRegistrationComponent implements OnInit {
   url :any = ''
-
+  account_type : any
   private fb: FormBuilder = new FormBuilder()
   isSendOTPVisible = true;
   disableCreatorEmail: boolean = false;
@@ -134,6 +134,7 @@ export class FarmerRegistrationComponent implements OnInit {
   constructor(private SharedService_: SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.account_type = sessionStorage.getItem('account_type') || '';
     this.farmer_id = sessionStorage.getItem('farmer_id') || '';
     if (this.farmer_id != '') this.getFarmerDetails() ;
     

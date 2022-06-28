@@ -11,13 +11,16 @@ export class UpdateProductComponent implements OnInit {
 
   products : any= [];
   selected_product : any
+  account_type : any
 
   constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
+
     this.SharedService_.getAllProduct().subscribe((res:any) =>{
       if(res.status== 200){
         this.products = res.data
+
       }else{
         this.toastr.error(res.message)
       }

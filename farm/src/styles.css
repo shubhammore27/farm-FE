@@ -732,3 +732,8 @@ html {
   .btn-block{
     width: 100%;
   }
+
+
+  .nav-link:hover{
+    cursor: pointer!important;
+  }

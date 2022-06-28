@@ -15,7 +15,7 @@ export class LoginPageComponent implements OnInit {
 
   login_form =  this.fb.group(
     {
-      username: ['shubham.more26@gmail.com', Validators.required],
+      username: ['farmer@gmail.com', Validators.required],
       password: ['123123', Validators.required],
     }
   );
@@ -26,11 +26,14 @@ export class LoginPageComponent implements OnInit {
         if(res.status == 200){
           this.toastr.success("Login Successfull.")
           sessionStorage.setItem('farmer_id', res.data[0].farmer_id)
+          sessionStorage.setItem('account_type', res.data[0].account_type)
           this.login_form.reset();
-          this.router.navigateByUrl('add-product');
+          if (res.data[0].account_type == 'Admin') this.router.navigateByUrl('add-product');
+          if (res.data[0].account_type == 'Farmer') this.router.navigateByUrl('farmer-dashboard');
+          
         }
         if(res.status == 400){
-          this.toastr.error("Login Error.")
+          this.toastr.error(res.message)
         }
       })
     }else {

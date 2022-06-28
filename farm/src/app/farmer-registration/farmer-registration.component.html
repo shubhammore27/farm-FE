@@ -1,6 +1,7 @@
 <div class="" id="home">
  <app-main-menu *ngIf="farmer_id == ''"></app-main-menu>
- <app-admin-menu *ngIf="farmer_id != ''"></app-admin-menu>
+    <app-farmer-menu *ngIf="account_type == 'Farmer'"></app-farmer-menu>
+    <app-admin-menu *ngIf="account_type == 'Admin'"></app-admin-menu>
     <form class="container mt-2" [formGroup]="createUser">
         <div class="row tm-content-row" >
             <div class="col-12 tm-block-col">
