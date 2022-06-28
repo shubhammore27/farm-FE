@@ -23,6 +23,7 @@ import { FarmerMenuComponent } from './farmer-menu/farmer-menu.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { CartComponent } from './cart/cart.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { WishListComponent } from './wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     FarmerMenuComponent,
     BuyProductComponent,
     CartComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    WishListComponent
   ],
   imports: [
     BrowserModule,

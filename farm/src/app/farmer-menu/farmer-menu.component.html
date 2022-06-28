@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-xl">
     <div class="container h-100">
         <a class="navbar-brand" routerLink="/home">
@@ -12,19 +13,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto h-100">
 
-                <li class="nav-item"  routerLinkActive="active" aria-expanded="false">
+                <li class="nav-item"  routerLinkActive="active" routerLink="/buy-product" aria-expanded="false" >
                     <a class="nav-link">
                         <i class="fa fa-plus" aria-hidden="true"></i> Buy Products
                     </a>
                 </li>
 
-                <li class="nav-item"  routerLinkActive="active" aria-expanded="false">
+                <li class="nav-item"  routerLinkActive="active" routerLink="/cart" aria-expanded="false">
                     <a class="nav-link">
-                        <i class="fas fa-shopping-cart"></i> Cart
+                        <i class="fas fa-shopping-cart"></i> Cart-items
                     </a>
                 </li>
 
-                <li class="nav-item"  routerLinkActive="active" aria-expanded="false">
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/wish-list" >
+                        <i class="fa fa-heart" aria-hidden="true"></i> Wish List
+                    </a>
+                </li>
+
+                <li class="nav-item"  routerLinkActive="active" aria-expanded="false" routerLink="/feedback">
                     <a class="nav-link">
                         <i class="fa fa-comments" aria-hidden="true"></i> Feedback
                     </a>

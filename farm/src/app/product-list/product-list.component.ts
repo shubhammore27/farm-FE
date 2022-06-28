@@ -20,9 +20,6 @@ export class ProductListComponent implements OnInit {
     this.getAllProducts()
   }
 
-  // get_product_to_update(event:any){
-  //   this.selected_product = event.target.value
-  // }
 
   getAllProducts(){
     this.SharedService_.getAllProduct().subscribe((res:any) =>{
