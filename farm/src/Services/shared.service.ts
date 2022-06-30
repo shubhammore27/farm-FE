@@ -59,4 +59,31 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.deleteProduct, body)
   }
 
+  
+  // Farmer APIs
+
+  getCart(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.getCart, body)
+  }
+
+  addToCart(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.addToCart, body)
+  }
+
+  getWishList(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.getWishList, body)
+  }
+
+  addToWishList(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.addToWishList, body)
+  }
+
+  deleteFromCart(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.deleteFromCart, body)
+  }
+
+  deleteFromWishList(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.deleteFromWishList, body)
+  }
+
 }

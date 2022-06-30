@@ -1,0 +1,25 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+
+
+
+
+
+    .custom-card{
+        background-color:  #435c70!important;
+        border: 2px dashed #5a6f80;
+        color: white;
+    }
+
+
+
+    .card{
+        background-color: initial;
+    }
+
+    .form-control{
+        background-color: white!important;
+    }

@@ -738,3 +738,10 @@ html {
     cursor: pointer!important;
   }
   @media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
+
+
+
+
+  .toast-success{
+    background-color: #f5a623!important;
+  }
