@@ -11,12 +11,14 @@ export class WishListComponent implements OnInit {
 
   wishListProducts : any[] = [];
   farmer_id : any;
+  cartProducts : any[] = [];
 
   constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.farmer_id = sessionStorage.getItem('farmer_id')
     this.getWishList()
+    this.getCart()
   }
 
 
@@ -54,5 +56,45 @@ export class WishListComponent implements OnInit {
       }
     }, err => this.toastr.error(err));
   }
+
+  deleteFromCart(product_id : number) {
+    let body = {product_id : product_id, farmer_id : this.farmer_id }
+    this.SharedService_.deleteFromCart(body).subscribe((res:any) =>{
+      if(res.status== 200){
+        this.toastr.success(res.message)
+        this.getWishList()
+      }else{
+        this.toastr.error(res.message)
+      }
+    }, err => this.toastr.error(err));
+  }
+
+  getCart(){
+    let body = {farmer_id : this.farmer_id,  wishlist : false, cart : true}
+    this.SharedService_.getProduct(body).subscribe((res:any) =>{
+      if(res.status== 200){
+        let temp :any[]=[]
+        res.data.forEach((element : any) => {
+          temp.push(element.product_Id)
+        });
+        this.cartProducts = temp
+      }else{
+        this.cartProducts = []
+      }
+    }, err => this.toastr.error(err));
+  }
+
+  addToCart(product_id: number){
+    let body = {product_id : product_id, farmer_id : this.farmer_id }
+    this.SharedService_.addToCart(body).subscribe((res:any) =>{
+      if(res.status== 200){
+        this.toastr.success(res.message)
+        this.getCart()
+      }else{
+        this.toastr.error(res.message)
+      }
+    }, err => this.toastr.error(err));
+  }
+
 
 }
