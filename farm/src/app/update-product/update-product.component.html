@@ -3,7 +3,7 @@
     <div class="row tm-content-row">
         <div class="col-12 tm-block-col">
             <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
-                <h2 class="text-white">Select Product To Update</h2>
+                <h2 class="text-white">Select Product To Update </h2>
                 <select class="custom-select" (change)="get_product_to_update($event)">
                     <option value="" selected>Select Product </option>
                     <option [value]="product.product_Id" *ngFor="let product of products">{{product.product_name}}</option>

@@ -16,7 +16,7 @@ export class UpdateProductComponent implements OnInit {
   constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-
+    this.account_type = sessionStorage.getItem('account_type');
     this.SharedService_.getAllProduct().subscribe((res:any) =>{
       if(res.status== 200){
         this.products = res.data
