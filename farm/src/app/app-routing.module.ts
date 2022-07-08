@@ -10,11 +10,12 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import {IndexComponent} from './index/index.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { RouteHomeComponent } from './route-home/route-home.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 
 const routes: Routes = [
-  // { path: '', component: IndexComponent },
+  { path: '', component: RouteHomeComponent },
   { path: 'home', component: IndexComponent },
   { path: 'farmer-registration', component: FarmerRegistrationComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },

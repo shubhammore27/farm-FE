@@ -11,9 +11,13 @@ export class SharedService {
   constructor(private http: HttpClient) { }
 
   // ============================ SHARED APIS============================
-
+  
   sendOTP(email: any) {
     return this.http.post(environment.baseUrl + UrlMapping.sendOTP, email)
+  }
+
+  auth(body: any) {
+    return this.http.post(environment.baseUrl + UrlMapping.auth, body)
   }
 
   farmer_registration(body :any) {

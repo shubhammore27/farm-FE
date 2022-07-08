@@ -7,6 +7,9 @@ export class UrlMapping {
     public static verifyEmail = '/farm/verifyEmail';
     public static getFarmerDetails = '/farm/getFarmerDetails'
     public static updateProfile = '/farm/updateProfile';
+    public static auth = '/farm/auth';
+
+    
 
     // Farmer APIs
     public static getCart = '/farm/getCart';
