@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './auth.guard';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { CartComponent } from './cart/cart.component';
 import { FarmerDashboardComponent } from './farmer-dashboard/farmer-dashboard.component';
@@ -16,10 +17,10 @@ import { WishListComponent } from './wish-list/wish-list.component';
 
 const routes: Routes = [
   { path: '', component: RouteHomeComponent },
-  { path: 'home', component: IndexComponent },
-  { path: 'farmer-registration', component: FarmerRegistrationComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'login', component: LoginPageComponent},
+  { path: 'home', component: IndexComponent, canActivate: [AuthGuard] },
+  { path: 'farmer-registration', component: FarmerRegistrationComponent , canActivate: [AuthGuard] },
+  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard]  },
+  { path: 'login', component: LoginPageComponent, canActivate: [AuthGuard] },
 
   // ADMIN ROUTINGS
   { path: 'add-product', component: AddProductComponent},

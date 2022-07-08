@@ -20,6 +20,14 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.auth, body)
   }
 
+  authoried(){
+    if(!!sessionStorage.getItem('auth')){
+      return true
+    }else{
+      return false
+    }
+  }
+
   farmer_registration(body :any) {
     return this.http.post(environment.baseUrl + UrlMapping.farmer_registration, body)
   }

@@ -29,7 +29,7 @@ export class LoginPageComponent implements OnInit {
           sessionStorage.setItem('account_type', res.data[0].account_type)
           this.login_form.reset();
           if (res.data[0].account_type == 'Admin') this.router.navigateByUrl('add-product');
-          if (res.data[0].account_type == 'Farmer') this.router.navigateByUrl('farmer-dashboard');
+          if (res.data[0].account_type == 'Farmer') this.router.navigateByUrl('buy-product');
           
         }
         if(res.status == 400){

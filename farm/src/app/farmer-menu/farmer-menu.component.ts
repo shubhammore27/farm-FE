@@ -14,7 +14,8 @@ export class FarmerMenuComponent implements OnInit {
   }
 
   logout(){
-    sessionStorage.clear()
+    sessionStorage.removeItem('account_type')
+    sessionStorage.removeItem('farmer_id')
     console.log(sessionStorage)
     this.router.navigate(['/login']);
   }

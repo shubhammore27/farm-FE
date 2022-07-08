@@ -25,6 +25,7 @@ import { CartComponent } from './cart/cart.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { RouteHomeComponent } from './route-home/route-home.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -59,8 +60,9 @@ import { RouteHomeComponent } from './route-home/route-home.component';
       progressAnimation: 'decreasing',
       preventDuplicates: true,
     } ), // ToastrModule added
+    
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

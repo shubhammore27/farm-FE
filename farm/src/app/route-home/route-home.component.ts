@@ -15,6 +15,7 @@ export class RouteHomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+    sessionStorage.clear();
     this.auth();
   }
 
@@ -23,6 +24,7 @@ export class RouteHomeComponent implements OnInit {
     this.SharedService_.auth(body).subscribe((res :any ) => {
       if(res.status== 200){
         if (res.data[0]   == '741-789') {
+          sessionStorage.setItem('auth', 'auth');
           this.toastr.success(res.message)
           this.router.navigateByUrl('/home')
         }else{
