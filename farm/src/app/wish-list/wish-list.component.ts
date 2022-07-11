@@ -16,7 +16,7 @@ export class WishListComponent implements OnInit {
   constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.farmer_id = sessionStorage.getItem('farmer_id')
+    this.farmer_id = sessionStorage.getItem('currentUserId')
     this.getWishList()
     this.getCart()
   }

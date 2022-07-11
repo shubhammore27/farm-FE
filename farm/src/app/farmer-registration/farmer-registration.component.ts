@@ -135,7 +135,7 @@ export class FarmerRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.account_type = sessionStorage.getItem('account_type') || '';
-    this.farmer_id = sessionStorage.getItem('farmer_id') || '';
+    this.farmer_id = sessionStorage.getItem('currentUserId') || '';
     if (this.farmer_id != '') this.getFarmerDetails() ;
     
   }

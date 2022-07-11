@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.farmer_id = sessionStorage.getItem('farmer_id')
+    this.farmer_id = sessionStorage.getItem('currentUserId')
     this.getCart()
   }
 

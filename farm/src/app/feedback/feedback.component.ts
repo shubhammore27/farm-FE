@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+// @ts-nocheck
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/Services/shared.service';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-feedback',
@@ -10,21 +11,53 @@ import { FormControl } from '@angular/forms';
 })
 export class FeedbackComponent implements OnInit {
 
+  @ViewChild('scrollMe')  myScrollContainer ?: ElementRef<any>  ; 
+  constructor(public  SharedService_ : SharedService, private toastr: ToastrService, public fb: FormBuilder) { }
+
   previusChatsList : any
   chatHistory : any 
   selectedUser : any
-  chat_content = new FormControl()
-  currentUserId : any
 
-  constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
+  chat = this.fb.group({
+    chat_content : ['', Validators.compose([Validators.required], [Validators.minLength(1)])]
+  });
+
+  currentUserId : any
+  currentUserImg :any
+
+  currentUserType : any
+  
+
+
+
 
   ngOnInit(): void {
+    this.currentUserType = sessionStorage.getItem('account_type')
     this.currentUserId = sessionStorage.getItem('currentUserId')
+    this.getCurrentUserDetails()
     this.getProfileForChat()
+    this.scrollToBottom()
+  }
+
+  scrollToBottom() {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+  } catch(err) { }  
+  }
+
+  getCurrentUserDetails(){
+    const body = {farmer_id : this.currentUserId}
+    this.SharedService_.getFarmerDetails(body).subscribe((res :any) => {
+      if (res['status'] == 200){
+        this.currentUserImg = res.data[0]['farmer_img']
+      }else{
+        this.toastr.error('Something went wrong!')
+      }
+    }, (err :any) => {});
   }
 
   getProfileForChat(){
-    const body = {  "get": sessionStorage.getItem('account_type') == 'Admin' ? 'Farmer' : 'Admin' }
+    const body = {  "get": this.currentUserType == 'Admin' ? 'Farmer' : 'Admin' }
     this.SharedService_.getProfileForChat(body).subscribe((res : any) =>{
       this.previusChatsList = res.data
       this.selectedUser = res.data[0]
@@ -46,14 +79,14 @@ export class FeedbackComponent implements OnInit {
 
   sendChat(){
     const body = {  
-      "chat_content" : this.chat_content.value,
+      "chat_content" : this.chat.controls['chat_content'].value,
       "sender_id": this.currentUserId,
       "receiver_id": this.selectedUser['farmer_id']
     }
-    if(this.chat_content.valid){
+    if(this.chat.valid){
       this.SharedService_.sendChat(body).subscribe((res : any) =>{
         this.getChat()
-        this.chat_content.reset()
+        this.chat.reset()
         console.log(res)
       }, err =>{this.toastr.error(err.message)})
     }
