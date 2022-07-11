@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/Services/shared.service';
 
@@ -14,7 +15,11 @@ export class BuyProductComponent implements OnInit {
   cartProducts : any[] = [];
   wishList :any[] = [];
 
-  constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
+  searchForm = this.fb.group({
+    search: ['']
+  })
+
+  constructor(public  SharedService_ : SharedService, private toastr: ToastrService, public fb: FormBuilder) { }
 
 
   ngOnInit(): void {

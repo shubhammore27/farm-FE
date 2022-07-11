@@ -27,6 +27,8 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { RouteHomeComponent } from './route-home/route-home.component';
 import { AuthGuard } from './auth.guard';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import { AuthGuard } from './auth.guard';
     CartComponent,
     FeedbackComponent,
     WishListComponent,
-    RouteHomeComponent
+    RouteHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,8 @@ import { AuthGuard } from './auth.guard';
       progressAnimation: 'decreasing',
       preventDuplicates: true,
     } ), // ToastrModule added
+    Ng2SearchPipeModule
+
     
   ],
   providers: [AuthGuard],
