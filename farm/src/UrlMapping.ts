@@ -9,8 +9,12 @@ export class UrlMapping {
     public static updateProfile = '/farm/updateProfile';
     public static auth = '/farm/auth';
 
-    
+    public static sendChat = '/farm/sendChat';
+    public static getProfileForChat = '/farm/getProfileForChat';
+    public static getChat = '/farm/getChat';
 
+    
+    
     // Farmer APIs
     public static getCart = '/farm/getCart';
     public static addToCart = '/farm/addToCart';

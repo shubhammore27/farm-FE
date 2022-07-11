@@ -25,7 +25,7 @@ export class LoginPageComponent implements OnInit {
       this.SharedService_.login(this.login_form.value).subscribe((res : any)  => {
         if(res.status == 200){
           this.toastr.success("Login Successfull.")
-          sessionStorage.setItem('farmer_id', res.data[0].farmer_id)
+          sessionStorage.setItem('currentUserId', res.data[0].farmer_id)
           sessionStorage.setItem('account_type', res.data[0].account_type)
           this.login_form.reset();
           if (res.data[0].account_type == 'Admin') this.router.navigateByUrl('add-product');

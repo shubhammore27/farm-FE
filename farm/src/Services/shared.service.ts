@@ -10,6 +10,16 @@ export class SharedService {
 
   constructor(private http: HttpClient) { }
 
+  // =========================DO NOT CHANGE THIS  or applicain will be borken down===================
+  
+  authoried(){
+    if(!!sessionStorage.getItem('auth')){
+      return true
+    }else{
+      return false
+    }
+  }
+
   // ============================ SHARED APIS============================
   
   sendOTP(email: any) {
@@ -20,13 +30,6 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.auth, body)
   }
 
-  authoried(){
-    if(!!sessionStorage.getItem('auth')){
-      return true
-    }else{
-      return false
-    }
-  }
 
   farmer_registration(body :any) {
     return this.http.post(environment.baseUrl + UrlMapping.farmer_registration, body)
@@ -46,6 +49,19 @@ export class SharedService {
 
   updateProfile(body:any){
     return this.http.post(environment.baseUrl + UrlMapping.updateProfile, body)
+  }
+
+  // chat APIs
+  sendChat(body :any) {
+    return this.http.post(environment.baseUrl + UrlMapping.sendChat, body)
+  }
+
+  getChat(body :any){
+    return this.http.post(environment.baseUrl + UrlMapping. getChat, body)
+  }
+
+  getProfileForChat(body :any) {
+    return this.http.post(environment.baseUrl + UrlMapping.getProfileForChat, body)
   }
 
 
@@ -72,7 +88,7 @@ export class SharedService {
   }
 
   
-  // Farmer APIs
+  //============================ Farmer APIs ============================
 
   getCart(body:any) {
     return this.http.post(environment.baseUrl + UrlMapping.getCart, body)

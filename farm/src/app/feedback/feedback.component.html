@@ -1,19 +1,10 @@
 <app-farmer-menu></app-farmer-menu>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
 <div class="container">
-
-
-    <!-- Content wrapper start -->
     <div class="content-wrapper">
-
-        <!-- Row start -->
         <div class="row gutters">
-
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-
                 <div class="card m-0 text-white">
-
-                    <!-- Row start -->
                     <div class="row no-gutters">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3" style=" background-color: #394f62; ">
                             <div class="users-container">
@@ -27,175 +18,56 @@
                                         </div>
                                     </div>
                                 </div>
-                                <ul class="users">
-                                    <li class="person active-user" data-chat="person1">
+                                <!-- Profile List -->
+                                <ul class="users" *ngFor="let chatList of previusChatsList">
+                                    <li class="person active-user" data-chat="person1"
+                                        (click)="selectedUser = chatList">
                                         <div class="user">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
+                                            <img src="{{chatList.farmer_img}}" alt="Retail Admin">
                                             <span class="status busy"></span>
                                         </div>
                                         <p class="name-time">
-                                            <span class="name">Steve Bangalter</span>
+                                            <span class="name">{{chatList.farmer_name+' ('+ chatList.account_type +')'
+                                                }}</span>
                                             <span class="time">15/02/2019</span>
                                         </p>
                                     </li>
-                                    <li class="person" data-chat="person1">
-                                        <div class="user">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png"
-                                                alt="Retail Admin">
-                                            <span class="status offline"></span>
-                                        </div>
-                                        <p class="name-time">
-                                            <span class="name">Steve Bangalter</span>
-                                            <span class="time">15/02/2019</span>
-                                        </p>
-                                    </li>
-                                    <li class="person " data-chat="person2">
-                                        <div class="user">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar2.png"
-                                                alt="Retail Admin">
-                                            <span class="status away"></span>
-                                        </div>
-                                        <p class="name-time">
-                                            <span class="name">Peter Gregor</span>
-                                            <span class="time">12/02/2019</span>
-                                        </p>
-                                    </li>
-                                    <li class="person" data-chat="person3">
-                                        <div class="user">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
-                                            <span class="status busy"></span>
-                                        </div>
-                                        <p class="name-time">
-                                            <span class="name">Jessica Larson</span>
-                                            <span class="time">11/02/2019</span>
-                                        </p>
-                                    </li>
-                                    <li class="person" data-chat="person4">
-                                        <div class="user">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar4.png"
-                                                alt="Retail Admin">
-                                            <span class="status offline"></span>
-                                        </div>
-                                        <p class="name-time">
-                                            <span class="name">Lisa Guerrero</span>
-                                            <span class="time">08/02/2019</span>
-                                        </p>
-                                    </li>
-                                    <li class="person" data-chat="person5">
-                                        <div class="user">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png"
-                                                alt="Retail Admin">
-                                            <span class="status away"></span>
-                                        </div>
-                                        <p class="name-time">
-                                            <span class="name">Michael Jordan</span>
-                                            <span class="time">05/02/2019</span>
-                                        </p>
-                                    </li>
+
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9" style="background-color: #394f62;">
+
+                        <!-- Chat List -->
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9 " style="background-color: #394f62;"
+                            *ngIf="selectedUser">
                             <div class="selected-user">
-                                <span>To: <span class="name">Emily Russell</span></span>
+                                <span>To: <span class="name">{{selectedUser.farmer_name}}</span></span>
                             </div>
                             <div class="chat-container">
-                                <ul class="chat-box chatContainerScroll">
-                                    <li class="chat-left">
+                                <ul class="chat-box chatContainerScroll" *ngFor="let chat of chatHistory">
+                                    <li [ngClass]="currentUserId != chat.sender_id ? 'chat-left' : 'chat-right' ">
                                         <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Russell</div>
+                                            <img src="{{selectedUser.farmer_img}}" alt="Retail Admin">
                                         </div>
-                                        <div class="chat-text">Hello, I'm Russell.
-                                            <br>How can I help you today?
-                                        </div>
-                                        <div class="chat-hour">08:55 <span class="fa fa-check-circle"></span></div>
-                                    </li>
-                                    <li class="chat-right">
-                                        <div class="chat-hour">08:56 <span class="fa fa-check-circle"></span></div>
-                                        <div class="chat-text">Hi, Russell
-                                            <br> I need more information about Developer Plan.
-                                        </div>
-                                        <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Sam</div>
-                                        </div>
-                                    </li>
-                                    <li class="chat-left">
-                                        <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Russell</div>
-                                        </div>
-                                        <div class="chat-text">Are we meeting today?
-                                            <br>Project has been already finished and I have results to show you.
-                                        </div>
-                                        <div class="chat-hour">08:57 <span class="fa fa-check-circle"></span></div>
-                                    </li>
-                                    <li class="chat-right">
-                                        <div class="chat-hour">08:59 <span class="fa fa-check-circle"></span></div>
-                                        <div class="chat-text">Well I am not sure.
-                                            <br>I have results to show you.
-                                        </div>
-                                        <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Joyse</div>
-                                        </div>
-                                    </li>
-                                    <li class="chat-left">
-                                        <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Russell</div>
-                                        </div>
-                                        <div class="chat-text">The rest of the team is not here yet.
-                                            <br>Maybe in an hour or so?
-                                        </div>
-                                        <div class="chat-hour">08:57 <span class="fa fa-check-circle"></span></div>
-                                    </li>
-                                    <li class="chat-right">
-                                        <div class="chat-hour">08:59 <span class="fa fa-check-circle"></span></div>
-                                        <div class="chat-text">Have you faced any problems at the last phase of the
-                                            project?</div>
-                                        <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar4.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Jin</div>
-                                        </div>
-                                    </li>
-                                    <li class="chat-left">
-                                        <div class="chat-avatar">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
-                                                alt="Retail Admin">
-                                            <div class="chat-name">Russell</div>
-                                        </div>
-                                        <div class="chat-text">Actually everything was fine.
-                                            <br>I'm very excited to show this to our team.
-                                        </div>
-                                        <div class="chat-hour">07:00 <span class="fa fa-check-circle"></span></div>
+                                        <b style="color: #394f62; font-weight: bold" class="chat-text">
+                                            <div class="chat-name">{{currentUserId != chat.sender_id ? selectedUser.farmer_name: 'You'}}</div>
+                                            {{chat.chat_content}}
+                                        </b>
                                     </li>
                                 </ul>
-                                <div class="form-group mt-3 mb-0">
-                                    <textarea class="form-control" rows="3"
-                                        placeholder="Type your message here..."></textarea>
+                                <div class="msger-inputarea" style="background-color: #394f62;">
+                                    <input type="text" class="msger-input" placeholder="Enter your message..."
+                                        [formControl]=chat_content>
+                                    <button class="btn btn-primary" (click)="sendChat()">Send</button>
                                 </div>
                             </div>
                         </div>
+                        <!-- IF Chat list not selected -->
+                        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9 " style="background-color: #394f62;"
+                            *ngIf="!selectedUser"></div>
                     </div>
-                    <!-- Row end -->
                 </div>
-
             </div>
-
         </div>
-        <!-- Row end -->
-
     </div>
-    <!-- Content wrapper end -->
-
 </div>
