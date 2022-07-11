@@ -3,11 +3,11 @@
 <section>
     <div class="container" style="margin-top: 2rem ;" >
         <h1 class="page-header text-center text-white text-u" *ngIf="wishListProducts.length ==  0">You Have Not Added Any Product To Wishlist..</h1>
-        <div class="row justify-content-center mb-3" *ngIf="wishListProducts.length > 0">
-            <div class="col-md-12 col-xl-10" *ngFor="let product of wishListProducts" >
+        <div class="row justify-content-center mb-3 overflow_" *ngIf="wishListProducts.length > 0">
+            <div class="col-md-12 col-xl-10 " *ngFor="let product of wishListProducts" >
                 <div class="card shadow-0 border rounded-3">
-                    <div class="card-body" >
-                        <div class="row">
+                    <div class="card-body mb-2" >
+                        <div class="row ">
                             <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
                                     <img src='{{ "assets/images/"+product.product_img}}' class="w-100" style="max-height: 13rem; min-height: 13rem;"/>

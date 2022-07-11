@@ -745,3 +745,9 @@ html {
   .toast-success{
     background-color: #f5a623!important;
   }
+
+  .overflow_{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 75vh;
+  }
