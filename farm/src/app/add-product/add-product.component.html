@@ -1,6 +1,6 @@
 <!-- <app-admin-menu></app-admin-menu> -->
-<app-admin-menu *ngIf="selected_product == ''"></app-admin-menu>
-
+<app-admin-menu *ngIf="account_type == 'Admin' && selected_product == ''"></app-admin-menu>
+<app-seller-menu *ngIf="account_type == 'Seller'&& selected_product == ''"></app-seller-menu>
 <div class="container tm-mt-big tm-mb-big">
     <div class="row">
         <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">

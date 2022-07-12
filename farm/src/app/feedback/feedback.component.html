@@ -1,5 +1,7 @@
 <app-farmer-menu *ngIf="currentUserType == 'Farmer'"></app-farmer-menu>
 <app-admin-menu *ngIf="currentUserType == 'Admin'"></app-admin-menu>
+<app-seller-menu *ngIf="currentUserType == 'Seller'"></app-seller-menu>
+
 <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
 <div class="container">
     <div class="content-wrapper">
@@ -22,7 +24,7 @@
                                 <!-- Profile List -->
                                 <ul class="users" *ngFor="let chatList of previusChatsList">
                                     <li class="person active-user" data-chat="person1"
-                                        (click)="selectedUser = chatList">
+                                        (click)="selectedUser = chatList; getChat()">
                                         <div class="user">
                                             <img src="{{chatList.farmer_img}}" alt="Retail Admin">
                                             <span class="status busy"></span>
@@ -58,8 +60,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <form class="msger-inputarea" style="background-color: #394f62;" [formGroup]="chat">
-                                <input type="text" class="msger-input" placeholder="Enter your message..."
+                            <form class="msger-inputarea input-group" style="background-color: #394f62;" [formGroup]="chat">
+                                <input type="text" class="msger-input form-control" placeholder="Enter your message..."
                                 formControlName=chat_content>
                                 <button class="btn btn-primary" (click)="sendChat()">Send</button>
                             </form>

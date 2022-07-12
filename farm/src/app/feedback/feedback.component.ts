@@ -57,11 +57,10 @@ export class FeedbackComponent implements OnInit {
   }
 
   getProfileForChat(){
-    const body = {  "get": this.currentUserType == 'Admin' ? 'Farmer' : 'Admin' }
+    const body = {  "get": this.currentUserType == 'Admin' ? ['Farmer', 'Seller'] : ['Admin'] }
     this.SharedService_.getProfileForChat(body).subscribe((res : any) =>{
       this.previusChatsList = res.data
       this.selectedUser = res.data[0]
-      console.log (this.selectedUser)
       this.getChat()
     }, err =>{this.toastr.error(err.message)})
   }

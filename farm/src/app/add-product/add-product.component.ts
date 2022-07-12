@@ -14,6 +14,7 @@ export class AddProductComponent implements OnInit {
 
   @Input('selected_product') selected_product : any =[]
   url :any = ''
+  account_type:any
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes){
@@ -27,11 +28,13 @@ export class AddProductComponent implements OnInit {
       product_name: ['Swaraj 265', Validators.compose([Validators.required, Validators.minLength(10)])],
       product_category: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
       product_price: ['30500', Validators.compose([Validators.required, Validators.minLength(3)])],
-      product_offer: ['50050', Validators.compose([Validators.required, Validators.minLength(3)])],
+      product_offer: ['50050', Validators.compose([Validators.required, Validators.minLength(1)])],
       product_brand: ['Mahendra', Validators.compose([Validators.required, Validators.minLength(3)])],
       product_description: ['A tractor is an engineering vehicle specifically designed to deliver a high tractive effort at slow speeds, for the purposes of hauling a trailer or machinery such as that used in agriculture.', Validators.compose([Validators.required, Validators.minLength(10)])],
       stock_size: ['5', Validators.compose([Validators.required, Validators.minLength(1)])],
       product_img: ['', Validators.compose([Validators.required])],
+      product_added_by : [sessionStorage.getItem('account_type'), Validators.compose([Validators.required])],
+      product_added_by_id : [sessionStorage.getItem('currentUserId'), Validators.compose([Validators.required])],
   })
 
   constructor(private SharedService_: SharedService, private toastr: ToastrService) {  }
@@ -70,12 +73,14 @@ export class AddProductComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.account_type = sessionStorage.getItem('account_type')
+  }
 
 
   getProductDetails(){
     if (this.selected_product != ''){
-      const body = {product_Id : this.selected_product}
+      const body = {product_Id : this.selected_product , cart : false, wishlist : false}
       this.SharedService_.getProduct(body).subscribe((res:any)=>{
         if(res['status'] == 200){
           this.Product.setValue(res.data[0])

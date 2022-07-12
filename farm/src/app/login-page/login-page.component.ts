@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
           this.login_form.reset();
           if (res.data[0].account_type == 'Admin') this.router.navigateByUrl('add-product');
           if (res.data[0].account_type == 'Farmer') this.router.navigateByUrl('buy-product');
-          
+          if (res.data[0].account_type == 'Seller') this.router.navigateByUrl('add-product');
         }
         if(res.status == 400){
           this.toastr.error(res.message)

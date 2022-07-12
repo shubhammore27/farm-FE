@@ -13,16 +13,19 @@ export class ProductListComponent implements OnInit {
   products : any = [];
   selected_product : any
   deleteProductList : any = [];
+  account_type :any
 
   constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getAllProducts()
+    this.account_type = sessionStorage.getItem('account_type')
   }
 
 
   getAllProducts(){
-    this.SharedService_.getAllProduct().subscribe((res:any) =>{
+    const body = {userType : sessionStorage.getItem('account_type'), userId : sessionStorage.getItem('currentUserId')}
+    this.SharedService_.getAllProduct(body).subscribe((res:any) =>{
       if(res.status== 200){
         this.products = res.data
       }else{

@@ -28,6 +28,7 @@ import { RouteHomeComponent } from './route-home/route-home.component';
 import { AuthGuard } from './auth.guard';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SellerMenuComponent } from './seller-menu/seller-menu.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FeedbackComponent,
     WishListComponent,
     RouteHomeComponent,
+    SellerMenuComponent,
   ],
   imports: [
     BrowserModule,

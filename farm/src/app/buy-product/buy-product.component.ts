@@ -30,7 +30,8 @@ export class BuyProductComponent implements OnInit {
   }
 
   getAllProducts(){
-    this.SharedService_.getAllProduct().subscribe((res:any) =>{
+    const body = {userType : sessionStorage.getItem('account_type'), userId : sessionStorage.getItem('currentUserId')}
+    this.SharedService_.getAllProduct(body).subscribe((res:any) =>{
       if(res.status== 200){
         this.products = res.data
       }else{
