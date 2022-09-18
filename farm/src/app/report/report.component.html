@@ -1,0 +1,11 @@
+<app-admin-menu *ngIf="account_type == 'Admin' "></app-admin-menu>
+<div class="container tm-mt-big tm-mb-big">
+    <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 ">
+            <ag-grid-angular class="ag-theme-dark" style="width: 78rem; height: 600px;" class="ag-theme-alpine" [rowData]="rowData"
+                [columnDefs]="columnDefs">
+            </ag-grid-angular>
+        </div>
+    </div>
+</div>
+

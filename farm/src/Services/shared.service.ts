@@ -114,4 +114,12 @@ export class SharedService {
     return this.http.post(environment.baseUrl + UrlMapping.deleteFromWishList, body)
   }
 
+  purches(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.purches, body)
+  }
+
+  getPurches(body:any) {
+    return this.http.post(environment.baseUrl + UrlMapping.getPurches, body)
+  }
+
 }

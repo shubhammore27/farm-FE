@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { SharedService } from 'src/Services/shared.service';
+import { FormBuilder, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,6 +16,7 @@ export class CartComponent implements OnInit {
   wishList :any[] = [];
   total : number = 0
   afterDiscount : number = 0
+  private fb: FormBuilder = new FormBuilder()
 
   constructor(public  SharedService_ : SharedService, private toastr: ToastrService) { }
 
@@ -66,11 +69,25 @@ export class CartComponent implements OnInit {
   }
 
   calculateTotalAndDiscount() {
-
     this.cartProducts.forEach(product => {
       this.total += parseInt(product.product_price )
       this.afterDiscount += (product.product_price - (product.product_price * product.product_offer / 100))
     });
+  }
+
+  checkOut() {
+    this.cartProducts.forEach((cartProduct)=> {
+      cartProduct['farmer_id'] = this.farmer_id
+    })
+
+    this.SharedService_.purches(this.cartProducts).subscribe((res:any) =>{
+      if(res.status== 200){
+        this.toastr.success(res.message)
+        this.getCart()
+      }else{
+        this.toastr.error(res.message)
+      }
+    }, err => this.toastr.error(err));
   }
 
 }

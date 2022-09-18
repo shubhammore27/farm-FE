@@ -5,6 +5,9 @@ Product Admin CSS Template
 https://templatemo.com/tm-524-product-admin
 
 */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+@import "ag-grid-community/styles/ag-grid.css";
 
 html {
     font-size: 16px!important;

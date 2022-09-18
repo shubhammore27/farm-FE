@@ -23,14 +23,14 @@ export class FarmerRegistrationComponent implements OnInit {
   createUser = this.fb.group({
     farmer_id: [''],
     account_type :['', Validators.required],
-    farmer_name: ['yyyyyyyyyyyyyyyyyy', Validators.compose([Validators.required, Validators.minLength(10)])],
-    farmer_address: ['yyyyyyyyyyyyyyy', Validators.compose([Validators.required, Validators.minLength(10)])],
-    farmer_phone: ['9999999999', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
-    farmer_email: ['shubham.more26@gmail.com', Validators.compose([Validators.required, Validators.email])],
-    farmer_password: ['123123', Validators.compose([Validators.required, Validators.minLength(6)])],
-    confirmPassword: ['123123', Validators.compose([Validators.required, Validators.minLength(6)])],
-    otp: ['1233', Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4), Validators.pattern("^[0-9]*$")])],
-    otpStatus: ['verified', Validators.required],
+    farmer_name: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
+    farmer_address: ['', Validators.compose([Validators.required, Validators.minLength(10)])],
+    farmer_phone: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
+    farmer_email: ['', Validators.compose([Validators.required, Validators.email])],
+    farmer_password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+    confirmPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+    otp: ['', Validators.compose([Validators.required, Validators.maxLength(4), Validators.minLength(4), Validators.pattern("^[0-9]*$")])],
+    otpStatus: ['', Validators.required],
     farmer_img : ['',Validators.required],
     created_at :['']
   })

@@ -10,8 +10,8 @@
                             <!-- LEFT SIDE BODY -->
                             <div class="col-lg-7 overflow_">
                                 <!-- Hearers -->
-                                <h5 class="mb-3 "><a routerLink="/buy-product" class="text-white"><i
-                                            class="fas fa-long-arrow-alt-left me-2 text-white"></i>Continue shopping</a>
+                                <h5 class="mb-3 "><a routerLink="/buy-product" class="text-white">
+                                        <i class="fas fa-long-arrow-alt-left me-2 text-white"></i>Continue shopping</a>
                                 </h5>
                                 <hr>
 
@@ -21,8 +21,10 @@
                                         <p class="mb-0">You have {{cartProducts.length}} items in your cart</p>
                                     </div>
                                     <div>
-                                        <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
-                                                class="text-white">price <i class="fas fa-angle-down mt-1"></i></a></p>
+                                        <p class="mb-0"><span class="text-muted">Sort by:</span>
+                                            <a class="text-white">price <i
+                                                    class="fas fa-angle-down mt-1"></i></a>
+                                        </p>
                                     </div>
                                 </div>
 
@@ -47,109 +49,109 @@
                                                 <!-- <div style="width: 50px;">
                                                     <h5 class="fw-normal mb-0">2</h5>
                                                 </div> -->
-                                                <div class="d-flex flex-row "> 
-                                                    <h5 class="mb-0 mx-5">{{product.product_price | currency:'INR'}}</h5>
-                                                    <h5 role="button" (click)="deleteFromCart(product.product_Id)" style="color: #cecece;"><i
-                                                        class="fas fa-trash-alt"></i></h5>
+                                                <div class="d-flex flex-row ">
+                                                    <h5 class="mb-0 mx-5">{{product.product_price | currency:'INR'}}
+                                                    </h5>
+                                                    <h5 role="button" (click)="deleteFromCart(product.product_Id)"
+                                                        style="color: #cecece;"><i class="fas fa-trash-alt"></i></h5>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
 
                             </div>
 
                             <div class="col-lg-5">
 
-                            <div class="card bg-primary text-white rounded-3">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-4">
-                                        <h5 class="mb-0">Card details</h5>
-                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                                            class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
-                                    </div>
-
-                                    <p class="small mb-2">Card type</p>
-                                    <a href="#!" type="submit" class="text-white"><i
-                                            class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                                    <a href="#!" type="submit" class="text-white"><i
-                                            class="fab fa-cc-visa fa-2x me-2"></i></a>
-                                    <a href="#!" type="submit" class="text-white"><i
-                                            class="fab fa-cc-amex fa-2x me-2"></i></a>
-                                    <a href="#!" type="submit" class="text-white"><i
-                                            class="fab fa-cc-paypal fa-2x"></i></a>
-
-                                    <form class="mt-4">
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeName" class="form-control form-control-lg"
-                                                siez="17" placeholder="Cardholder's Name" />
-                                            <label class="form-label" for="typeName">Cardholder's Name</label>
+                                <div class="card bg-primary text-white rounded-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <h5 class="mb-0">Card details</h5>
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                                                class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
                                         </div>
 
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="typeText" class="form-control form-control-lg"
-                                                siez="17" placeholder="1234 5678 9012 3457" minlength="19"
-                                                maxlength="19" />
-                                            <label class="form-label" for="typeText">Card Number</label>
-                                        </div>
+                                        <p class="small mb-2">Card type</p>
+                                        <a href="#!" type="submit" class="text-white"><i
+                                                class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                                        <a href="#!" type="submit" class="text-white"><i
+                                                class="fab fa-cc-visa fa-2x me-2"></i></a>
+                                        <a href="#!" type="submit" class="text-white"><i
+                                                class="fab fa-cc-amex fa-2x me-2"></i></a>
+                                        <a href="#!" type="submit" class="text-white"><i
+                                                class="fab fa-cc-paypal fa-2x"></i></a>
 
-                                        <div class="row mb-4">
-                                            <div class="col-md-6">
-                                                <div class="form-outline form-white">
-                                                    <input type="text" id="typeExp"
-                                                        class="form-control form-control-lg" placeholder="MM/YYYY"
-                                                        size="7" id="exp" minlength="7" maxlength="7" />
-                                                    <label class="form-label" for="typeExp">Expiration</label>
+                                        <form class="mt-4">
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="text" id="typeName" class="form-control form-control-lg"
+                                                    siez="17" placeholder="Cardholder's Name" />
+                                                <label class="form-label" for="typeName">Cardholder's Name</label>
+                                            </div>
+
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="text" id="typeText" class="form-control form-control-lg"
+                                                    siez="17" placeholder="1234 5678 9012 3457" minlength="19"
+                                                    maxlength="19" />
+                                                <label class="form-label" for="typeText">Card Number</label>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="text" id="typeExp"
+                                                            class="form-control form-control-lg" placeholder="MM/YYYY"
+                                                            size="7" id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Expiration</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="password" id="typeText"
+                                                            class="form-control form-control-lg"
+                                                            placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3"
+                                                            maxlength="3" />
+                                                        <label class="form-label" for="typeText">Cvv</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-outline form-white">
-                                                    <input type="password" id="typeText"
-                                                        class="form-control form-control-lg"
-                                                        placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3"
-                                                        maxlength="3" />
-                                                    <label class="form-label" for="typeText">Cvv</label>
-                                                </div>
+
+                                        </form>
+
+                                        <hr class="my-4">
+
+                                        <div class="d-flex justify-content-between text-uppercase">
+                                            <p class="mb-2">Total(Incl. taxes)</p>
+                                            <s class="mb-2">{{ total | currency:'INR'}}</s>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between text-uppercase">
+                                            <p class="mb-2">Subtotal</p>
+                                            <p class="mb-2">{{ afterDiscount | currency:'INR'}}</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between text-uppercase">
+                                            <p class="mb-2">You Saved</p>
+                                            <p class="mb-2">{{ total-afterDiscount | currency:'INR'}}</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between text-uppercase mb-5">
+                                            <p class="mb-2">Shipping</p>
+                                            <p class="mb-2">Free</p>
+                                        </div>
+
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary btn-block text-uppercase"
+                                            data-toggle="modal" data-target="#exampleModalCenter">
+                                            <div class="d-flex justify-content-between" (click)="checkOut()">
+                                                <span>{{ afterDiscount | currency:'INR'}}</span>
+                                                <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                                             </div>
-                                        </div>
+                                        </button>
 
-                                    </form>
-
-                                    <hr class="my-4">
-
-                                    <div class="d-flex justify-content-between text-uppercase">
-                                        <p class="mb-2">Total(Incl. taxes)</p>
-                                        <s class="mb-2">{{ total | currency:'INR'}}</s>
                                     </div>
-
-                                    <div class="d-flex justify-content-between text-uppercase">
-                                        <p class="mb-2">Subtotal</p>
-                                        <p class="mb-2">{{ afterDiscount | currency:'INR'}}</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between text-uppercase">
-                                        <p class="mb-2">You Saved</p>
-                                        <p class="mb-2">{{ total-afterDiscount | currency:'INR'}}</p>
-                                    </div>
-
-                                    <div class="d-flex justify-content-between text-uppercase mb-5">
-                                        <p class="mb-2">Shipping</p>
-                                        <p class="mb-2">Free</p>
-                                    </div>
-
-
-
-                                    <button type="button" class="btn btn-primary btn-block text-uppercase">
-                                        <div class="d-flex justify-content-between">
-                                            <span>{{ afterDiscount | currency:'INR'}}</span>
-                                            <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                                        </div>
-                                    </button>
-
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -158,3 +160,26 @@
         </div>
     </div>
 </section>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-white" style="background-color: #394f62">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLongTitle">Order Successfull..</h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <div class="modal-body text-success text-center" role="alert">
+
+                <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 10rem;"></i>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

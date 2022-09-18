@@ -29,7 +29,8 @@ import { AuthGuard } from './auth.guard';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SellerMenuComponent } from './seller-menu/seller-menu.component';
-
+import { ReportComponent } from './report/report.component';
+import { AgGridModule } from 'ag-grid-angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { SellerMenuComponent } from './seller-menu/seller-menu.component';
     WishListComponent,
     RouteHomeComponent,
     SellerMenuComponent,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,8 @@ import { SellerMenuComponent } from './seller-menu/seller-menu.component';
       progressAnimation: 'decreasing',
       preventDuplicates: true,
     } ), // ToastrModule added
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AgGridModule
 
     
   ],

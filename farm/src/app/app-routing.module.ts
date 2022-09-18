@@ -11,6 +11,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import {IndexComponent} from './index/index.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ReportComponent } from './report/report.component';
 import { RouteHomeComponent } from './route-home/route-home.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { WishListComponent } from './wish-list/wish-list.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'add-product', component: AddProductComponent},
   { path: 'update-product', component: UpdateProductComponent},
   { path: 'product-list', component: ProductListComponent},
+  { path: 'report', component: ReportComponent},
 
 
   // FARMER ROUTINGS //
