@@ -15,7 +15,6 @@ export class AdminMenuComponent implements OnInit {
   logout(){
     sessionStorage.removeItem('account_type')
     sessionStorage.removeItem('currentUserId')
-    console.log(sessionStorage)
     this.router.navigate(['/login']);
   }
 

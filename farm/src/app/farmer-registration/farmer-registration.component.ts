@@ -63,7 +63,8 @@ export class FarmerRegistrationComponent implements OnInit {
       "farmer_phone": this.createUser.controls['farmer_phone'].value,
       "farmer_email": this.createUser.controls['farmer_email'].value,
       "farmer_password": this.createUser.controls['farmer_password'].value,
-      "farmer_img" : this.url
+      "farmer_img" : this.url,
+      "account_type": this.createUser.controls['account_type'].value,
     }
     this.SharedService_.farmer_registration(body).subscribe(
       (res :any ) => {
