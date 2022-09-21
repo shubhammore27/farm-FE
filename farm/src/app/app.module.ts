@@ -31,6 +31,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SellerMenuComponent } from './seller-menu/seller-menu.component';
 import { ReportComponent } from './report/report.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { VideoComponent } from './video/video.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { AgGridModule } from 'ag-grid-angular';
     RouteHomeComponent,
     SellerMenuComponent,
     ReportComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
